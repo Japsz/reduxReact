@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Provider} from 'react-redux';
+import store from './store/store';
+import Form from './views/Form/Form';
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import List from './views/List/List';
+import FilteredList from "./views/List/FilteredList";
+
+import Header from "./common/layout/Header";
+import {Jumbotron} from "react-bootstrap";
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <Provider store={store}>
+        <Router>
+          <Header/>
+            <Jumbotron>
+              <Switch>
+                <Route exact path={'/'} component={List}/>
+                <Route exact path={'/AddElement'} component={Form}/>
+                <Route path={'/filter/:key/:text'} component={FilteredList}/>
+              </Switch>
+            </Jumbotron>
+        </Router>
+      </Provider>
   );
 }
 

@@ -1,0 +1,1 @@
+export const SET_EDIT_MODAL = 'SET_EDIT_MODAL';
