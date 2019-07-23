@@ -24,13 +24,7 @@ const ElementList = (props) => {
   return (
     <Container>
       <Row style={{marginBottom: '10px'}}>
-        <Col md={12}>
-          <h2 style={{margin: '3px'}}> Todas las personas <Link className={'btn btn-success'} to={'/addElement'}>+ Añadir</Link></h2>
-        </Col>
-        <hr/>
-        <Col md={{span: 3}}>
-          <Filter {...props}/>
-        </Col>
+        <Filter/>
       </Row>
       <Row>
 
